@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../css/tenth.css"/>
+<title>创建节点</title>
+
+<script>
+	function addline(){
+		theTable=document.getElementById("t");
+		lines=theTable.rows.length;
+		
+		newRow = theTable.insertRow(); 
+		
+		newRow.insertCell(0);
+		
+		//aElement=document.createElement("input");
+		
+		//newRow.cells[0].appendChild(aElement);
+		newRow.cells[0].innerHTML="<input type='text' name='items' value='2'>";
+		
+		newRow.insertCell(1);
+		
+		newRow.cells[1].innerHTML="<a href='#' onclick='deleteRow(this)'>删除</a>";
+	
+	}
+	
+	function deleteRow(obj){
+		 var tab = document.getElementById('t');
+		    //获取tr对象;
+		    var tr = obj.parentNode.parentNode;
+		    
+		  
+		        tr.parentNode.removeChild(tr);
+		   
+		    
+	}
+	
+	function addCaption(){
+		var para = document.createElement("p");
+		var node = document.createTextNode("请填写数量");
+		para.appendChild(node);
+		 
+		var element = document.getElementById("t");
+		
+		element.parentNode.insertBefore(para,element);
+	}
+	
+	function changeTableStyle(){
+		theTable=document.getElementById("t");
+		theTable.style.backgroundColor="#A7C942";
+	}
+</script>
+
+</head>
+<body>
+<table id="t" class="orderlist">
+	<tr><td>数量</td><td>操作</td></tr>
+	
+</table>
+
+<button onclick="addline()">新增一行</button>
+
+<button onclick="addCaption()">在表格前面添加一个提示</button>
+
+<button onclick="changeTableStyle()">改变表格样式</button>
+</body>
+</html>

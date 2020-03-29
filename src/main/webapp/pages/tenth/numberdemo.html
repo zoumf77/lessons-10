@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+<script>
+	
+	function showNumber(){
+		
+		odata=document.getElementsByName("data")[0].value;
+		if(isNaN(odata)){
+			alert("请输入一个数字!");
+			return;
+		}
+		
+		data=new Number(document.getElementsByName("data")[0].value);
+		//data=0377;
+		 
+		binary=new Number(document.getElementsByName("binary")[0].value);
+	
+		if(binary==10)
+			document.getElementsByName("result")[0].value=data.toString();
+		else
+			document.getElementsByName("result")[0].value=data.toString(binary);
+	}
+	
+	
+	
+</script>
+
+
+</head>
+<body>
+	<input type="text" name="data" value="255"> 
+	<br>
+	<input type="text" name="binary" value="10">
+	<input type="text" name="result">
+	<button onclick="showNumber()">显示进制数字</button>
+
+</body>
+</html>

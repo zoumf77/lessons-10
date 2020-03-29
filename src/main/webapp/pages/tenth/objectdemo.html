@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>字符串操作</title>
+
+<script>
+	function isContain(){
+		
+		origin=document.getElementsByName("origin")[0].value;
+		match=document.getElementsByName("match")[0].value;
+		document.getElementsByName("index")[0].value=origin.indexOf(match);
+		document.getElementsByName("upper")[0].value=origin.toUpperCase();
+		document.getElementsByName("lower")[0].value=origin.toLowerCase();
+	}
+	
+	function toArray(){
+		
+		array=document.getElementsByName("large")[0].value.split("，");
+		document.getElementsByName("changdu")[0].value=array.length;
+		index1=document.getElementsByName("index1")[0].value;
+		
+		document.getElementsByName("zhi")[0].value=array[index1];
+	}
+	
+	function showTime(){
+		var today=new Date();
+		var year=today.getFullYear();
+		var month=today.getMonth()+1;
+		var day=today.getUTCDate();
+		
+		var h=today.getHours();
+		var m=today.getMinutes();
+		var s=today.getSeconds();// 在小于10的数字前加一个‘0’
+		m=checkTime(m);
+		s=checkTime(s);
+		document.getElementsByName('now')[0].value=year+"-"+month+"-"+day+" " +h+":"+m+":"+s;
+		t=setTimeout(function(){showTime()},500);
+	}
+	function checkTime(i){
+		if (i<10){
+			i="0" + i;
+		}
+		return i;
+	}
+	
+	function showRandom(){
+		document.getElementsByName('arandom')[0].value=Math.random();
+	}
+</script>
+</head>
+<body onload="showTime()">
+	源串：<input type="text" name="origin" value="Hello World!"><br>
+	匹配串:<input type="text" name="match" value="hello"><br>
+	
+	位置：<input type="text" name="index" ><br>
+	大写：<input type="text" name="upper" value="hello"><br>
+             小写：<input type="text" name="lower" value="hello"><br>
+             
+    <button onclick="isContain()">匹配？</button>
+    
+    <hr>
+    
+    <input type="text" name="large" size="60" value="中国，一个古老的国家，现在正处于一个美好的时代！"><br>
+    <input type="text" name="changdu" ><br>
+    <input type="text" name="index1" value=0><br>
+    <input type="text" name="zhi"><br>
+    
+    <button onclick="toArray()">分解成数组</button>
+    
+    <hr>
+    <input type="text" name="now" >
+    
+    <hr>
+    <input type="text" name="arandom" value="" >
+    
+    <button onclick="showRandom()">获取随机值</button>
+    
+</body>
+</html>

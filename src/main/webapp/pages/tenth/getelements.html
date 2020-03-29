@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>如何访问Html-DOM元素</title>
+
+<style>
+	.pclass {
+		color:red
+	}
+</style>
+<script>
+	/*通过ID访问*/
+	function getById(){
+		
+		obj=document.getElementById("p1");//通过名字也知道得到的是一个元素
+		obj.style.color="blue";
+		obj.innerHTML="我被访问";
+	}
+	
+	/*通过标签名访问*/
+	function getByTagName(){
+		objs=document.getElementsByTagName('p');
+		for(i=0;i<objs.length;i++){
+			objs[i].style.color="blue";
+			objs[i].innerHTML="我被访问";
+		}
+	}
+	
+	/*通过class访问*/
+	function getByClassName(){
+		objs=document.getElementsByClassName('pclass');
+		for(i=0;i<objs.length;i++){
+			objs[i].style.color="red";
+			objs[i].innerHTML="我被访问";
+		}
+	}
+	
+	/*通过标签的属性name访问*/
+	function getByName(){
+		objs=document.getElementsByName('items');
+		for(i=0;i<objs.length;i++){
+			objs[i].style.color="blue";
+			alert(objs[i].value);
+		}
+	}
+	
+	function changeimg(){
+		name=document.getElementById("logo").src;
+		
+	
+		if(name.indexOf("logo")>=0)
+			document.getElementById("logo").src="../../images/baidu.jpg";
+		else
+			document.getElementById("logo").src="../../images/logo.jpg";
+		
+	}
+	
+</script>
+</head>
+<body>
+
+	<p id="p1" class="pclass">第一个段落</p>
+	<p id="p2" class="pclass">第二个段落</p>
+	<p id="p3" class="pclass">第三个段落</p>
+	
+	
+	<button onclick="getById()">通过ID访问元素</button>
+	
+	<button onclick="getByTagName()">通过标签名访问元素</button>
+	
+	<button onclick="getByClassName()">通过类名访问元素</button>
+	
+	<hr>
+	<form>
+		数量：<input type="number" name="items" value="1">
+		数量： <input type="number" name="items" value="2">
+		
+	</form>
+	<button onclick="getByName()">通过元素名称属性访问</button>
+	<hr>
+	<img id="logo" src="../../images/logo.jpg">
+	<p onclick="changeimg()">我们的logo</p>
+</body>
+</html>

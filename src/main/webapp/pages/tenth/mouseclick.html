@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="讲解鼠标常用事件  onclick ondblclick 单击和双击事件通常不会放在一起">
+<title>鼠标事件</title>
+
+<script>
+	function check(){
+		alert("用户名不能为空");
+	}
+	function check1(user,password){
+		obj_username=document.getElementById(user);
+		obj_password=document.getElementById(password);
+		alert(obj_username.value);
+		alert(obj_password.value);
+		
+	}
+	
+	function clearuser(){
+	
+		obj=document.getElementById("user");
+		obj.value="";
+		obj.style.color="black";
+	}
+	
+	function clearpassword(){
+		
+		obj=document.getElementById("password");
+		obj.type="password";
+		obj.value="";
+		obj.style.color="black";
+	}
+	
+	function clear1(id_name){
+		
+		obj=document.getElementById(id_name);
+		
+		obj.value="";
+		obj.style.color="black";
+	
+	}
+	
+	
+	
+</script>
+</head>
+
+<body>
+	用户名:<input type="text" id="user" value="请输入用户名" style="color:#C0C0C0" onmousedown="javascript:clear1('user')"></input>
+	
+	密码：<input type="text" id="password" value="请输入密码" style="color:#C0C0C0" onmousedown="javascript:clearpassword()"></input>
+	<button id="bt" onclick="javascript:check1('user','password')">点击</button>
+</body>
+</html>
